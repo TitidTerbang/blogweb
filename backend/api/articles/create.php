@@ -1,6 +1,6 @@
 <?php
 
-require_once '../api/config/db.php';
+require_once '../config/db.php';
 
 // Memeriksa apakah data telah dikirim melalui POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

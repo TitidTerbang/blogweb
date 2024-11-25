@@ -6,3 +6,11 @@ Blogging Website with Stack
 - TailwindCSS
 - PHP
 - MySQL
+
+---
+## Requirements
+- PHP 8.2
+- Composer
+```bash
+composer require firebase/php-jwt
+```

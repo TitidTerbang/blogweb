@@ -1,6 +1,6 @@
 <?php
 
-require_once '../api/config/db.php';
+require_once '../config/db.php';
 
 // Memeriksa apakah ID telah dikirim melalui DELETE
 if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {

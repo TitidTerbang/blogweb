@@ -1,6 +1,6 @@
 <?php
 
-require_once '../api/config/db.php';
+require_once '../config/db.php';
 
 // Ambil daftar artikel
 try {
