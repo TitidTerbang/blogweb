@@ -17,7 +17,10 @@ function Article() {
         }
         const data = await response.json();
         if (data && data.data) {
-          setArticles(data.data);
+          const publishedArticles = data.data.filter(
+            (article) => article.status === 'published'
+          );
+          setArticles(publishedArticles);
         } else {
           throw new Error("Data format from API is incorrect");
         }
@@ -33,22 +36,23 @@ function Article() {
   }, []);
 
   if (loading) {
-      return (
-        <div className="flex justify-center items-center h-screen">
-            <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-500"></div>
-        </div>
-      );
-    }
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    );
+  }
 
   if (error) {
     return (
-        <div className="flex justify-center items-center h-screen">
-          <p className="text-red-500 font-poppins text-center">
-            Error fetching articles: {error.message}
-          </p>
-        </div>
-      );
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-red-500 font-poppins text-center">
+          Error fetching articles: {error.message}
+        </p>
+      </div>
+    );
   }
+
 
   return (
     <div className="font-poppins bg-background min-h-screen py-10">
@@ -62,17 +66,24 @@ function Article() {
               key={article.id}
               className="bg-white shadow rounded-md overflow-hidden hover:shadow-lg transition duration-300 ease-in-out"
             >
-                <div className="p-4">
-                    <h2 className="text-lg font-medium text-gray-800 mb-2">
-                    {article.title}
-                    </h2>
-                    <Link
-                        to={`/article/${article.id}`}
-                         className="text-primary hover:text-blue-700 transition duration-300 ease-in-out"
-                     >
-                        Read More
-                     </Link>
-                </div>
+              {article.image_url && (
+                <img
+                  src={article.image_url}
+                  alt={article.title}
+                  className="w-full h-48 object-cover mb-2"
+                />
+              )}
+              <div className="p-4">
+                <h2 className="text-lg font-medium text-gray-800 mb-2">
+                  {article.title}
+                </h2>
+                <Link
+                  to={`/article/${article.id}`}
+                  className="text-primary hover:text-blue-700 transition duration-300 ease-in-out"
+                >
+                  Read More
+                </Link>
+              </div>
             </div>
           ))}
         </div>
