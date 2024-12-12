@@ -1,3 +1,6 @@
 .idea
 struktur.md
 backend/api/auth/encrypt.php
+frontend/node_modules
+frontend/package-lock.json
+frontend/src/components

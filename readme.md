@@ -14,3 +14,9 @@ Blogging Website with Stack
 ```bash
 composer require firebase/php-jwt
 ```
+- React
+
+````bash
+npm install -D tailwindcss
+npx tailwindcss init
+````

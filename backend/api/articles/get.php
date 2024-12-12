@@ -1,5 +1,10 @@
 <?php
 
+header("Access-Control-Allow-Origin: *"); // Izinkan semua domain untuk mengakses
+header("Content-Type: application/json; charset=UTF-8"); // Format respons JSON
+header("Access-Control-Allow-Methods: GET"); // Izinkan metode GET
+header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+
 require_once '../config/db.php';
 
 // Ambil daftar artikel
